@@ -1,7 +1,7 @@
 # PupilSpace - Student Management
 This project is a command-line interface student management system that allows users to perform CRUD (Create, Retrieve, Update, Delete) operations on student data. The data is stored in a MySQL database.
 
-##Features
+## Features
 
 - Add new student data
 - Retrieve existing student data
@@ -34,8 +34,9 @@ The database connection details are specified in the `Student` class. Make sure 
 String url = "jdbc:mysql://localhost:3306/pupilspace";
 String user = "root";
 String password = "[YOUR_ROOT_PASSWORD]";
+```
 
-#How to Run
+# How to Run
 
 - Make sure you have MySQL installed and running.
 - Create a database named pupilspace and a table named information with the following schema:
@@ -57,11 +58,11 @@ CREATE TABLE information (
 );
 
 You can find the SQL queries in PupilSpace\src\SQL Queries.sql
-
+```
 - Update the database configuration in the `Student` class.
 - Compile and run the `Main` class.
 
-#Exception Handling
+# Exception Handling
 
 The project includes custom exceptions to handle invalid student IDs and ages:
 
@@ -73,6 +74,6 @@ Throw when an invalid student ID is encountered.
 
 Thrown when an invalid student age is encountered.
 
-#License
+# License
 
 This project is licensed under MIT License.
