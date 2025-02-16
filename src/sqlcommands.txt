@@ -1,0 +1,67 @@
+reading data:
+String url = "jdbc:mysql://localhost:3306/testdb";
+        String user = "root";
+        String password = "nirupam2006";
+        try{
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs =
+                    stmt.executeQuery("SELECT * FROM information WHERE id = " + 1);
+//            while (rs.next()) {
+//                System.out.println(rs.getString("name"));
+//                System.out.println(rs.getString("email"));
+//                System.out.println(rs.getString("address"));
+//            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+adding student:
+        try{
+                    Connection conn = DriverManager.getConnection(url, user, password);
+                    String insertQuery = "INSERT INTO information (id, name, age, " +
+                            "gender, email, phoneNumber, address) VALUES (?,?,?,?,?,?,?)";
+                    PreparedStatement ps = conn.prepareStatement(insertQuery);
+                    ps.setInt(1, student.getId());
+                    ps.setString(2, student.getName());
+                    ps.setInt(3, student.getAge());
+                    ps.setString(4, student.getGender());
+                    ps.setString(5, student.getEmail());
+                    ps.setString(6, student.getPhoneNumber());
+                    ps.setString(7, student.getAddress());
+                    ps.executeUpdate();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
+updating student data:
+try{
+                    Connection conn = DriverManager.getConnection(url, user, password);
+                    String updateQuery = "UPDATE information SET id = ?, name =
+                    ?, age = ?, gender = ?, email = ?, phoneNumber = ?, address
+                    = ? WHERE id = ?";
+
+                    PreparedStatement ps = conn.prepareStatement(updateQuery);
+                    ps.setInt(1, student.getId());
+                    ps.setString(2, student.getName());
+                    ps.setInt(3, student.getAge());
+                    ps.setString(4, student.getGender());
+                    ps.setString(5, student.getEmail());
+                    ps.setString(6, student.getPhoneNumber());
+                    ps.setString(7, student.getAddress());
+                    ps.executeUpdate();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
+deleting student data:
+try{
+                    Connection conn = DriverManager.getConnection(url, user, password);
+                    String deleteQuery = "DELETE FROM information WHERE id = ?";
+
+                    PreparedStatement ps = conn.prepareStatement(updateQuery);
+                    ps.setInt(1, student.getId());
+                    ps.executeUpdate();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
